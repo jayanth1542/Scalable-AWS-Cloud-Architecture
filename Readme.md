@@ -21,10 +21,6 @@ A highly available, auto-scaling 3-tier web architecture built on AWS — VPC wi
         Auto Scaling Group (min 1 / desired 2 / max 3)
                             
 
-**Services used:** VPC, Subnets (public + private, 2 AZs), Internet Gateway, Route Tables, Security Groups, EC2, Launch Templates, Auto Scaling Groups, Application Load Balancer, Target Groups, RDS, CloudWatch
-
----
-
 ## 1. Networking Foundation
 
 Built a custom VPC (`10.0.0.0/16`) with 2 public and 2 private subnets spread across `ap-south-1a` and `ap-south-1b` for high availability. Attached an Internet Gateway and configured route tables so only the public subnets route outbound traffic to `0.0.0.0/0`.
