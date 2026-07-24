@@ -117,13 +117,8 @@ An internet-facing Application Load Balancer spans both public subnets and forwa
 
 ---
 
-## 4. Database — RDS (Multi-AZ Backend Tier)
 
-Added an RDS instance in the private subnets (DB Subnet Group spanning both AZs), with public access disabled and a security group that only accepts inbound connections from the EC2 security group — the database is never reachable from the internet directly.
-
----
-
-## 5. Monitoring & Self-Healing Verification
+## 4. Monitoring & Self-Healing Verification
 
 CloudWatch alarms track average CPU utilization (drives the ASG scaling policy) and unhealthy host count on the Target Group, to catch application-level failures that CPU alone wouldn't reveal.
 
