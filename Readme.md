@@ -19,11 +19,7 @@ A highly available, auto-scaling 3-tier web architecture built on AWS — VPC wi
      [EC2 - ap-south-1a]         [EC2 - ap-south-1b]
               │                           │
         Auto Scaling Group (min 1 / desired 2 / max 3)
-                            |
-                 ┌──────────────────────┐
-                 │      Amazon RDS       │  (private subnets, Multi-AZ)
-                 └──────────────────────┘
-```
+                            
 
 **Services used:** VPC, Subnets (public + private, 2 AZs), Internet Gateway, Route Tables, Security Groups, EC2, Launch Templates, Auto Scaling Groups, Application Load Balancer, Target Groups, RDS, CloudWatch
 
