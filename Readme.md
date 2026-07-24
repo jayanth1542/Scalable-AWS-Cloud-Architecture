@@ -1,132 +1,448 @@
-# Scalable AWS Cloud Architecture
+# AWS Highly Available Web Application using Auto Scaling and Load Balancer
 
-A highly available, auto-scaling 3-tier web architecture built on AWS — VPC with public/private subnets across two Availability Zones, an Auto Scaling Group behind an Application Load Balancer, and RDS for the database tier.
+## Project Overview
 
-## Architecture Overview
+This project demonstrates the deployment of a highly available web application on AWS using:
 
-```
-                        Internet
-                            |
-                    [Internet Gateway]
-                            |
-                 ┌──────────────────────┐
-                 │   Application Load    │
-                 │      Balancer         │  (public subnets, both AZs)
-                 └──────────┬───────────┘
-                            |
-              ┌─────────────┴─────────────┐
-              │                           │
-     [EC2 - ap-south-1a]         [EC2 - ap-south-1b]
-              │                           │
-        Auto Scaling Group (min 1 / desired 2 / max 3)
-                            |
-                 ┌──────────────────────┐
-                 │      Amazon RDS       │  (private subnets, Multi-AZ)
-                 └──────────────────────┘
-```
+- Amazon VPC
+- Public and Private Subnets
+- Internet Gateway
+- Route Tables
+- EC2 Instances
+- Launch Template
+- Auto Scaling Group
+- Application Load Balancer
+- Security Groups
+- Nginx Web Server
 
-**Services used:** VPC, Subnets (public + private, 2 AZs), Internet Gateway, Route Tables, Security Groups, EC2, Launch Templates, Auto Scaling Groups, Application Load Balancer, Target Groups, RDS, CloudWatch
+The objective was to create an infrastructure that automatically scales application instances while distributing incoming traffic through an Application Load Balancer.
 
 ---
 
-## 1. Networking Foundation
+# Architecture
 
-Built a custom VPC (`10.0.0.0/16`) with 2 public and 2 private subnets spread across `ap-south-1a` and `ap-south-1b` for high availability. Attached an Internet Gateway and configured route tables so only the public subnets route outbound traffic to `0.0.0.0/0`.
-
-![VPC and Subnets](PASTE_SCREENSHOT_LINK_HERE)
-![Route Table with IGW route](PASTE_SCREENSHOT_LINK_HERE)
-![Resource Map confirming subnet-to-IGW routing](PASTE_SCREENSHOT_LINK_HERE)
-
-**Design note:** Kept subnet selection out of the Launch Template and delegated it to the Auto Scaling Group instead, so instances distribute automatically across both AZs rather than being pinned to one.
+![Architecture](images/architecture.png)
 
 ---
 
-## 2. Compute — Launch Template & Auto Scaling Group
+# Technologies Used
 
-Created a Launch Template (not the older Launch Config, to reflect current best practice) with Amazon Linux 2023, `t2.micro`, and a user-data script that installs and configures nginx, serving a page showing the instance's own ID and Availability Zone — this makes it possible to visually confirm load balancing is actually distributing traffic.
+- AWS EC2
+- Amazon VPC
+- Auto Scaling Group
+- Application Load Balancer
+- Launch Template
+- Security Groups
+- Internet Gateway
+- Route Tables
+- Nginx
+- Amazon Linux
+
+---
+
+# Step 1 — Create VPC
+
+A dedicated Virtual Private Cloud was created to isolate the infrastructure.
+
+![Create VPC](images/vpc-created.png)
+
+**Screenshot**
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 5.24.15 PM
+```
+
+---
+
+# Step 2 — Create Public and Private Subnets
+
+Four subnets were created.
+
+- Public Subnet 1
+- Public Subnet 2
+- Private Subnet 1
+- Private Subnet 2
+
+This allows high availability across Availability Zones.
+
+![Subnets](images/subnets.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 5.24.40 PM
+```
+
+---
+
+# Step 3 — Attach Internet Gateway
+
+An Internet Gateway was attached to the VPC to provide Internet connectivity.
+
+![IGW](images/igw.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 5.29.06 PM
+```
+
+---
+
+# Step 4 — Configure Route Tables
+
+The public route table was configured to route traffic through the Internet Gateway.
+
+Private subnets remained isolated.
+
+![Route Table](images/route-table.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 5.31.25 PM
+```
+
+---
+
+# Step 5 — Associate Route Tables
+
+Public subnets were associated with the public route table.
+
+Private subnets remained associated with the private route table.
+
+![Route Associations](images/route-association.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 5.32.22 PM
+```
+
+---
+
+# Step 6 — Create Security Groups
+
+Separate Security Groups were configured.
+
+### EC2 Security Group
+
+Allowed
+
+- SSH (22)
+- HTTP (80)
+
+### ALB Security Group
+
+Allowed
+
+- HTTP (80)
+
+![Security Group](images/security-group.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 5.33.01 PM
+```
+
+---
+
+# Step 7 — Launch EC2 Instance
+
+An EC2 instance was launched inside the public subnet.
+
+Nginx was installed and configured.
+
+```bash
+sudo yum install nginx -y
+sudo systemctl enable nginx
+sudo systemctl start nginx
+```
+
+![EC2](images/ec2.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 5.36.49 PM
+```
+
+---
+
+# Step 8 — Verify Nginx
+
+The web server was verified by accessing the instance using its Public IP.
+
+![Nginx](images/nginx.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 5.57.19 PM
+```
+
+---
+
+# Step 9 — Create Launch Template
+
+A Launch Template was created using the configured EC2 instance.
+
+The template stores:
+
+- AMI
+- Instance Type
+- Security Group
+- User Data
+
+![Launch Template](images/launch-template.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 6.08.34 PM
+```
+
+---
+
+# Step 10 — Configure User Data
+
+User Data automatically installs Nginx whenever Auto Scaling launches a new instance.
 
 ```bash
 #!/bin/bash
-sudo dnf install -y nginx
-
-TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
-INSTANCE_ID=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -s http://169.254.169.254/latest/meta-data/instance-id)
-AZ=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
-
-sudo tee /usr/share/nginx/html/index.html > /dev/null << EOF
-<!DOCTYPE html>
-<html>
-<head><title>ScalableAWSCloud Demo</title></head>
-<body style="font-family: sans-serif; text-align: center; margin-top: 50px;">
-  <h1>Hello from EC2!</h1>
-  <p><strong>Instance ID:</strong> $INSTANCE_ID</p>
-  <p><strong>Availability Zone:</strong> $AZ</p>
-</body>
-</html>
-EOF
-
-sudo systemctl start nginx
-sudo systemctl enable nginx
+yum update -y
+yum install nginx -y
+systemctl enable nginx
+systemctl start nginx
 ```
 
-The Auto Scaling Group launches across both public subnets with a target-tracking scaling policy (50% average CPU), min 1 / desired 2 / max 3.
+![User Data](images/user-data.png)
 
-![Launch Template configuration](PASTE_SCREENSHOT_LINK_HERE)
-![Auto Scaling Group with instances across both AZs](PASTE_SCREENSHOT_LINK_HERE)
+Replace with
 
----
-
-## 3. Load Balancing
-
-An internet-facing Application Load Balancer spans both public subnets and forwards HTTP traffic to a Target Group (target type: Instances, for native ASG integration). Security groups restrict traffic so only the ALB can reach EC2 on port 80.
-
-![Target Group health checks passing](PASTE_SCREENSHOT_LINK_HERE)
-![ALB configuration](PASTE_SCREENSHOT_LINK_HERE)
-
-**Live proof of load balancing** — refreshing the ALB's DNS name shows the response alternating between different Instance IDs and Availability Zones:
-
-![Instance 1 response - ap-south-1a](PASTE_SCREENSHOT_LINK_HERE)
-![Instance 2 response - ap-south-1b](PASTE_SCREENSHOT_LINK_HERE)
+```
+Screenshot 2026-07-24 at 6.08.34 PM
+```
 
 ---
 
-## 4. Database — RDS
+# Step 11 — Create Auto Scaling Group
 
-Added an RDS instance in the private subnets (DB Subnet Group spanning both AZs), with public access disabled and a security group that only accepts inbound connections from the EC2 security group — the database is never reachable from the internet directly.
+The Auto Scaling Group was configured using the Launch Template.
 
-![RDS configuration](PASTE_SCREENSHOT_LINK_HERE)
+Configuration included
 
----
+- Minimum Capacity
+- Desired Capacity
+- Maximum Capacity
 
-## 5. Monitoring
+![ASG](images/asg-created.png)
 
-CloudWatch alarms track average CPU utilization (drives the ASG scaling policy) and unhealthy host count on the Target Group, to catch application-level failures that CPU alone wouldn't reveal.
+Replace with
 
-![CloudWatch alarms](PASTE_SCREENSHOT_LINK_HERE)
-
----
-
-## Challenges Encountered
-
-Real infrastructure work involves debugging, not just clicking through a console. A few issues came up during this build:
-
-**1. SSH host key verification failures**
-Kept failing when connecting to a rebuilt instance. Diagnosed by checking the exact error (host identity mismatch) and clearing the stale entry in `~/.ssh/known_hosts` with `ssh-keygen -R <host>`, then re-verifying the new fingerprint on reconnect.
-
-**2. Auto Scaling Group launching into the wrong (private) subnet**
-Instances came up healthy but had no public IP and no internet access. Traced it by checking each instance's Subnet ID in the console and cross-referencing against the VPC resource map — the ASG's network settings included a private subnet alongside the public ones. Fixed by editing the ASG's subnet list to include only the public subnets.
-
-**3. "Security groups in the launch template are not linked to the VPC" error**
-Hit this when the Launch Template's security group belonged to the default VPC rather than the custom one. Security groups are VPC-scoped, so this failed at creation time rather than launching something broken — fixed by creating/selecting a security group explicitly scoped to the project VPC.
-
-**4. Subnet had an internet route but instances still had no public IP**
-Learned that a route to an Internet Gateway and a subnet's "auto-assign public IPv4" setting are two independent things — a subnet can be internet-*routable* without automatically giving instances a public IP. Enabled auto-assign on the public subnets and relaunched instances to pick up public IPs.
+```
+Screenshot 2026-07-24 at 6.14.42 PM
+```
 
 ---
 
-## What I'd Do Differently at Scale
+# Step 12 — Configure Scaling Policies
 
-- **Infrastructure as Code**: this was built manually via the console for hands-on learning; a production version would use Terraform or CloudFormation for repeatability and version control.
-- **Secrets management**: RDS credentials would move to AWS Secrets Manager instead of being embedded in configuration.
-- **Tighter security groups**: SSH restricted to a specific IP rather than left open during the build/debug phase; HTTP restricted to the ALB's security group only.
-- **Read replicas**: for read-heavy workloads, since RDS itself doesn't horizontally scale the way the EC2 tier does.
+Scaling policies ensure automatic creation or termination of EC2 instances based on demand.
+
+![Scaling Policy](images/scaling-policy.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 6.41.18 PM
+```
+
+---
+
+# Step 13 — Create Target Group
+
+A Target Group was created to register EC2 instances.
+
+Health checks were configured on port 80.
+
+![Target Group](images/target-group.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 6.41.29 PM
+```
+
+---
+
+# Step 14 — Create Application Load Balancer
+
+An internet-facing Application Load Balancer was deployed.
+
+The ALB distributes traffic across healthy EC2 instances.
+
+![ALB](images/alb-created.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 6.41.43 PM
+```
+
+---
+
+# Step 15 — Configure Listener
+
+HTTP Listener was configured on port 80.
+
+Traffic forwards to the Target Group.
+
+![Listener](images/listener.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 6.41.55 PM
+```
+
+---
+
+# Step 16 — Register Healthy Targets
+
+The EC2 instances successfully passed health checks.
+
+Status became **Healthy**.
+
+![Healthy Targets](images/healthy-targets.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 6.42.04 PM
+```
+
+---
+
+# Step 17 — Verify Load Balancer
+
+The application was successfully accessed using the ALB DNS Name.
+
+Traffic reached healthy EC2 instances automatically.
+
+![ALB DNS](images/alb-working.png)
+
+Replace with
+
+```
+Screenshot 2026-07-24 at 7.29.49 PM
+```
+
+---
+
+# Challenges Faced
+
+## 1. SSH Host Key Verification Failed
+
+**Problem**
+
+SSH connection failed because the host key stored locally no longer matched the instance.
+
+**Solution**
+
+Removed the old SSH key using:
+
+```bash
+ssh-keygen -R <public-ip>
+```
+
+---
+
+## 2. Auto Scaling Group Launched Instances in Wrong Subnet
+
+**Problem**
+
+Instances were being launched inside private subnets.
+
+**Solution**
+
+Updated the ASG configuration to use the correct public subnets.
+
+---
+
+## 3. Security Group VPC Mismatch
+
+**Problem**
+
+Launch Template referenced a Security Group from another VPC.
+
+**Solution**
+
+Created a new Security Group inside the correct VPC and updated the Launch Template.
+
+---
+
+## 4. Target Group Health Checks Failed
+
+**Problem**
+
+Instances were marked unhealthy.
+
+**Solution**
+
+Verified:
+
+- Nginx service
+- Security Group rules
+- HTTP port
+- Health Check path
+
+---
+
+## 5. Nginx Not Starting Automatically
+
+**Problem**
+
+New instances created by Auto Scaling did not serve the webpage.
+
+**Solution**
+
+Added Nginx installation and startup commands inside User Data.
+
+---
+
+# Project Outcome
+
+Successfully deployed a highly available AWS infrastructure capable of:
+
+- Automatic scaling
+- Load balancing
+- Health monitoring
+- Fault tolerance
+- High availability
+
+---
+
+# Future Improvements
+
+- HTTPS using ACM
+- Route 53 Domain
+- CloudWatch Monitoring
+- SNS Alerts
+- Terraform Automation
+- CI/CD using GitHub Actions
+- Docker Deployment
+- Amazon RDS Backend
+
+---
+
+# Author
+
+**Jayanth Somala**
+
+Cloud & DevOps Engineering Student
+
+GitHub: https://github.com/jayanth1542
