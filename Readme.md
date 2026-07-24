@@ -1,29 +1,132 @@
-<img width="1446" height="442" alt="Screenshot 2026-07-24 at 7 29 49 PM" src="https://github.com/user-attachments/assets/8dbe4aee-9d7e-449f-b33f-5479f5c55605" />
-<img width="1445" height="956" alt="Screenshot 2026-07-24 at 7 24 30 PM" src="https://github.com/user-attachments/assets/db379a81-d97c-4c9f-9d76-b0d5dc36c17a" />
-<img width="1445" height="956" alt="Screenshot 2026-07-24 at 7 24 25 PM" src="https://github.com/user-attachments/assets/38a1feee-0c73-4ea5-8767-51733c4dcadd" />
-<img width="1445" height="956" alt="Screenshot 2026-07-24 at 7 19 36 PM" src="https://github.com/user-attachments/assets/450b5577-f98a-4362-9d58-5a430f0288f8" />
-<img width="1445" height="956" alt="Screenshot 2026-07-24 at 7 18 43 PM" src="https://github.com/user-attachments/assets/398e25e3-4eaf-4844-962e-819f596db583" />
-<img width="1445" height="956" alt="Screenshot 2026-07-24 at 6 58 25 PM" src="https://github.com/user-attachments/assets/50ec0e14-5d8b-4b4e-949e-e44467b2f51b" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 50 02 PM" src="https://github.com/user-attachments/assets/5a937b9c-e3c5-4639-b96b-aa9682d2a5e7" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 49 15 PM" src="https://github.com/user-attachments/assets/bc91bbd2-529e-478f-8269-a5a4eb4d3ade" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 47 02 PM" src="https://github.com/user-attachments/assets/5a4016b8-3f62-421b-94d8-949d52807cd2" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 46 50 PM" src="https://github.com/user-attachments/assets/3c66bef9-acac-4d7b-bfbd-0219a39c0963" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 46 44 PM" src="https://github.com/user-attachments/assets/1fd46970-76c4-46e8-b39b-4c91dd8f61f5" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 42 12 PM" src="https://github.com/user-attachments/assets/c37b3279-1a66-4780-ac67-d7614af1b017" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 42 04 PM" src="https://github.com/user-attachments/assets/51b7001c-54aa-425a-9093-9828c3052200" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 41 55 PM" src="https://github.com/user-attachments/assets/718fe2f6-1040-4cd3-8bfd-f9a127b41c7a" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 41 43 PM" src="https://github.com/user-attachments/assets/33263c86-68dd-466a-867e-bbe81b31dafd" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 41 29 PM" src="https://github.com/user-attachments/assets/980c91f3-78c9-494e-932d-8db4b63a8c67" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 41 18 PM" src="https://github.com/user-attachments/assets/4b9ff3c6-b7c4-4bf7-b12d-a029c7f517c3" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 14 42 PM" src="https://github.com/user-attachments/assets/7028e8ea-de10-47c1-892d-57bca408ff8c" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 08 34 PM" src="https://github.com/user-attachments/assets/c42d5be7-f665-4611-9183-00466e73219a" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 08 34 PM" src="https://github.com/user-attachments/assets/c5fa62ca-7c1c-4354-804e-039712646844" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 6 08 34 PM" src="https://github.com/user-attachments/assets/e9edc74b-0485-4848-b9d9-a8f88e1ea534" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 5 57 19 PM" src="https://github.com/user-attachments/assets/ac79cd46-f403-4cde-829c-79ad7b245942" />
-<img width="1445" height="787" alt="Screenshot 2026-07-24 at 5 36 49 PM" src="https://github.com/user-attachments/assets/a3f5d9b7-b80d-4809-badc-e973d98ded3a" />
-<img width="1470" height="569" alt="Screenshot 2026-07-24 at 5 33 01 PM" src="https://github.com/user-attachments/assets/beaac2c7-92d5-48e0-846b-9b23bd6ea64d" />
-<img width="1470" height="569" alt="Screenshot 2026-07-24 at 5 32 22 PM" src="https://github.com/user-attachments/assets/27a8ae29-d06c-4fd8-b1d7-fce1d422fe43" />
-<img width="1470" height="449" alt="Screenshot 2026-07-24 at 5 31 25 PM" src="https://github.com/user-attachments/assets/af414579-1bc6-4a92-9488-b0e900f1a378" />
-<img width="1470" height="449" alt="Screenshot 2026-07-24 at 5 29 06 PM" src="https://github.com/user-attachments/assets/04b85e98-37a5-4ba2-beb5-08a548955801" />
-<img width="1470" height="449" alt="Screenshot 2026-07-24 at 5 24 40 PM" src="https://github.com/user-attachments/assets/05c80ef5-9105-4926-b478-48663a734cb5" />
-<img width="1454" height="759" alt="Screenshot 2026-07-24 at 5 24 15 PM" src="https://github.com/user-attachments/assets/5ac0cbe3-5efc-454d-b78c-cf498ebdf015" />
+# Scalable AWS Cloud Architecture
+
+A highly available, auto-scaling 3-tier web architecture built on AWS — VPC with public/private subnets across two Availability Zones, an Auto Scaling Group behind an Application Load Balancer, and RDS for the database tier.
+
+## Architecture Overview
+
+```
+                        Internet
+                            |
+                    [Internet Gateway]
+                            |
+                 ┌──────────────────────┐
+                 │   Application Load    │
+                 │      Balancer         │  (public subnets, both AZs)
+                 └──────────┬───────────┘
+                            |
+              ┌─────────────┴─────────────┐
+              │                           │
+     [EC2 - ap-south-1a]         [EC2 - ap-south-1b]
+              │                           │
+        Auto Scaling Group (min 1 / desired 2 / max 3)
+                            |
+                 ┌──────────────────────┐
+                 │      Amazon RDS       │  (private subnets, Multi-AZ)
+                 └──────────────────────┘
+```
+
+**Services used:** VPC, Subnets (public + private, 2 AZs), Internet Gateway, Route Tables, Security Groups, EC2, Launch Templates, Auto Scaling Groups, Application Load Balancer, Target Groups, RDS, CloudWatch
+
+---
+
+## 1. Networking Foundation
+
+Built a custom VPC (`10.0.0.0/16`) with 2 public and 2 private subnets spread across `ap-south-1a` and `ap-south-1b` for high availability. Attached an Internet Gateway and configured route tables so only the public subnets route outbound traffic to `0.0.0.0/0`.
+
+![VPC and Subnets](PASTE_SCREENSHOT_LINK_HERE)
+![Route Table with IGW route](PASTE_SCREENSHOT_LINK_HERE)
+![Resource Map confirming subnet-to-IGW routing](PASTE_SCREENSHOT_LINK_HERE)
+
+**Design note:** Kept subnet selection out of the Launch Template and delegated it to the Auto Scaling Group instead, so instances distribute automatically across both AZs rather than being pinned to one.
+
+---
+
+## 2. Compute — Launch Template & Auto Scaling Group
+
+Created a Launch Template (not the older Launch Config, to reflect current best practice) with Amazon Linux 2023, `t2.micro`, and a user-data script that installs and configures nginx, serving a page showing the instance's own ID and Availability Zone — this makes it possible to visually confirm load balancing is actually distributing traffic.
+
+```bash
+#!/bin/bash
+sudo dnf install -y nginx
+
+TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+INSTANCE_ID=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -s http://169.254.169.254/latest/meta-data/instance-id)
+AZ=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
+
+sudo tee /usr/share/nginx/html/index.html > /dev/null << EOF
+<!DOCTYPE html>
+<html>
+<head><title>ScalableAWSCloud Demo</title></head>
+<body style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+  <h1>Hello from EC2!</h1>
+  <p><strong>Instance ID:</strong> $INSTANCE_ID</p>
+  <p><strong>Availability Zone:</strong> $AZ</p>
+</body>
+</html>
+EOF
+
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
+The Auto Scaling Group launches across both public subnets with a target-tracking scaling policy (50% average CPU), min 1 / desired 2 / max 3.
+
+![Launch Template configuration](PASTE_SCREENSHOT_LINK_HERE)
+![Auto Scaling Group with instances across both AZs](PASTE_SCREENSHOT_LINK_HERE)
+
+---
+
+## 3. Load Balancing
+
+An internet-facing Application Load Balancer spans both public subnets and forwards HTTP traffic to a Target Group (target type: Instances, for native ASG integration). Security groups restrict traffic so only the ALB can reach EC2 on port 80.
+
+![Target Group health checks passing](PASTE_SCREENSHOT_LINK_HERE)
+![ALB configuration](PASTE_SCREENSHOT_LINK_HERE)
+
+**Live proof of load balancing** — refreshing the ALB's DNS name shows the response alternating between different Instance IDs and Availability Zones:
+
+![Instance 1 response - ap-south-1a](PASTE_SCREENSHOT_LINK_HERE)
+![Instance 2 response - ap-south-1b](PASTE_SCREENSHOT_LINK_HERE)
+
+---
+
+## 4. Database — RDS
+
+Added an RDS instance in the private subnets (DB Subnet Group spanning both AZs), with public access disabled and a security group that only accepts inbound connections from the EC2 security group — the database is never reachable from the internet directly.
+
+![RDS configuration](PASTE_SCREENSHOT_LINK_HERE)
+
+---
+
+## 5. Monitoring
+
+CloudWatch alarms track average CPU utilization (drives the ASG scaling policy) and unhealthy host count on the Target Group, to catch application-level failures that CPU alone wouldn't reveal.
+
+![CloudWatch alarms](PASTE_SCREENSHOT_LINK_HERE)
+
+---
+
+## Challenges Encountered
+
+Real infrastructure work involves debugging, not just clicking through a console. A few issues came up during this build:
+
+**1. SSH host key verification failures**
+Kept failing when connecting to a rebuilt instance. Diagnosed by checking the exact error (host identity mismatch) and clearing the stale entry in `~/.ssh/known_hosts` with `ssh-keygen -R <host>`, then re-verifying the new fingerprint on reconnect.
+
+**2. Auto Scaling Group launching into the wrong (private) subnet**
+Instances came up healthy but had no public IP and no internet access. Traced it by checking each instance's Subnet ID in the console and cross-referencing against the VPC resource map — the ASG's network settings included a private subnet alongside the public ones. Fixed by editing the ASG's subnet list to include only the public subnets.
+
+**3. "Security groups in the launch template are not linked to the VPC" error**
+Hit this when the Launch Template's security group belonged to the default VPC rather than the custom one. Security groups are VPC-scoped, so this failed at creation time rather than launching something broken — fixed by creating/selecting a security group explicitly scoped to the project VPC.
+
+**4. Subnet had an internet route but instances still had no public IP**
+Learned that a route to an Internet Gateway and a subnet's "auto-assign public IPv4" setting are two independent things — a subnet can be internet-*routable* without automatically giving instances a public IP. Enabled auto-assign on the public subnets and relaunched instances to pick up public IPs.
+
+---
+
+## What I'd Do Differently at Scale
+
+- **Infrastructure as Code**: this was built manually via the console for hands-on learning; a production version would use Terraform or CloudFormation for repeatability and version control.
+- **Secrets management**: RDS credentials would move to AWS Secrets Manager instead of being embedded in configuration.
+- **Tighter security groups**: SSH restricted to a specific IP rather than left open during the build/debug phase; HTTP restricted to the ALB's security group only.
+- **Read replicas**: for read-heavy workloads, since RDS itself doesn't horizontally scale the way the EC2 tier does.
